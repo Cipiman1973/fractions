@@ -24,9 +24,7 @@ public class Frekšns implements IFraction {
 
     }
 
-    /**
-     * @link https://www.baeldung.com/java-greatest-common-divisor
-     */
+ 
     private static Integer findGreatestCommonDenominator(Integer i1, Integer i2) {
         if (i1 < i2) return findGreatestCommonDenominator(i2, i1);
         if (i2 == 0) return i1;
