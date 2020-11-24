@@ -1,25 +1,25 @@
-public class Frekšns implements IFraction {
+public class Fraction implements IFraction {
 
     private final Integer numerator;
     private final Integer denominator;
 
-    public Frekšns(Integer numerator, Integer denominator) {
+    public Fraction(Integer numerator, Integer denominator) {
         this.numerator = numerator;
         this.denominator = denominator;
 
         if (denominator == 0) throw new ArithmeticException("Cannot Divide by 0");
     }
 
-    public static Frekšns createNormalised(Integer numerator, Integer denominator) {
+    public static Fraction createNormalised(Integer numerator, Integer denominator) {
         try {
             for (int i = denominator / 2; i > 0; i--) {
                 if (denominator % i == 0 && numerator % i == 0) {
-                    return new Frekšns(numerator / i, denominator / i);
+                    return new Fraction(numerator / i, denominator / i);
                 }
             }
             throw new Exception();
         } catch (Exception e) {
-            return new Frekšns(numerator, denominator);
+            return new Fraction(numerator, denominator);
         }
 
     }
@@ -55,7 +55,7 @@ public class Frekšns implements IFraction {
         int a = getNumerator();
         int c = other.getNumerator();
         int d = other.getDenominator();
-        return new Frekšns((a * d) + (b * c), b * d);
+        return new Fraction((a * d) + (b * c), b * d);
     }
 
     @Override
@@ -64,7 +64,7 @@ public class Frekšns implements IFraction {
         int a = getNumerator();
         int c = other.getNumerator();
         int d = other.getDenominator();
-        return new Frekšns((a * d) - (b * c), b * d);
+        return new Fraction((a * d) - (b * c), b * d);
     }
 
     @Override
@@ -73,7 +73,7 @@ public class Frekšns implements IFraction {
         int a = getNumerator();
         int c = other.getNumerator();
         int d = other.getDenominator();
-        return new Frekšns(a * c, b * d);
+        return new Fraction(a * c, b * d);
     }
 
     @Override
@@ -82,7 +82,7 @@ public class Frekšns implements IFraction {
         int a = getNumerator();
         int c = other.getNumerator();
         int d = other.getDenominator();
-        return new Frekšns(a * d, b * c);
+        return new Fraction(a * d, b * c);
     }
 
     @Override
